@@ -3,7 +3,8 @@ var ReactDOM = require('react-dom');
 //these are used in Greeter.js only
 //var GreeterMessage = require('./components/GreeterMessage');
 //var GreeterForm = require('./components/GreeterForm');
-var Greeter = require('./components/Greeter');
+//var Greeter = require('./components/Greeter');
+var Greeter = require('Greeter');
 
 /*
 ReactDOM.render(

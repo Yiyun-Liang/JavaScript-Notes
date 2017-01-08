@@ -51,6 +51,7 @@
 	//these are used in Greeter.js only
 	//var GreeterMessage = require('./components/GreeterMessage');
 	//var GreeterForm = require('./components/GreeterForm');
+	//var Greeter = require('./components/Greeter');
 	var Greeter = __webpack_require__(178);
 
 	/*
