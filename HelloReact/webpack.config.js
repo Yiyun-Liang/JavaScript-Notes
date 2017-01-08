@@ -11,6 +11,7 @@ module.exports = {
   module: {
     loaders: [
       {
+        // loader to load jsx files
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015']

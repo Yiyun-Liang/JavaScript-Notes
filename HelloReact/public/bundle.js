@@ -48,119 +48,10 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(32);
-
-	// a nested component: responsible for only one thing in React
-	// a presentational component: don't maintain state, simply renders and calls functions
-	var GreeterMessage = React.createClass({
-	  displayName: 'GreeterMessage',
-
-	  render: function render() {
-	    var name = this.props.name;
-	    var msg = this.props.msg;
-
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'h1',
-	        null,
-	        'Hello ',
-	        name,
-	        '!'
-	      ),
-	      React.createElement(
-	        'p',
-	        null,
-	        msg
-	      )
-	    );
-	  }
-	});
-
-	var GreeterForm = React.createClass({
-	  displayName: 'GreeterForm',
-
-	  onFormSubmit: function onFormSubmit(e) {
-	    e.preventDefault();
-
-	    var updates = {};
-	    var name = this.refs.name.value;
-	    var msg = this.refs.msg.value;
-
-	    if (name.length > 0) {
-	      this.refs.name.value = '';
-	      updates.name = name;
-	    }
-
-	    if (msg.length > 0) {
-	      this.refs.msg.value = '';
-	      updates.msg = msg;
-	    }
-
-	    this.props.onButtonClick(updates);
-	  },
-	  render: function render() {
-	    return React.createElement(
-	      'form',
-	      { onSubmit: this.onFormSubmit },
-	      React.createElement(
-	        'div',
-	        null,
-	        React.createElement('input', { type: 'text', ref: 'name', placeholder: 'enter your name' })
-	      ),
-	      React.createElement(
-	        'div',
-	        null,
-	        React.createElement('textarea', { ref: 'msg', placeholder: 'enter your text' })
-	      ),
-	      React.createElement(
-	        'div',
-	        null,
-	        React.createElement(
-	          'button',
-	          null,
-	          'Submit'
-	        )
-	      )
-	    );
-	  }
-	});
-
-	// React naming convention: camelcase for every word
-	// a React component
-	// every React component needs a render method
-	// a container component: maintain states, render children
-	var Greeter = React.createClass({
-	  displayName: 'Greeter',
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      name: 'React',
-	      msg: 'This is default message from a component'
-	    };
-	  },
-	  getInitialState: function getInitialState() {
-	    return {
-	      name: this.props.name,
-	      msg: this.props.msg
-	    };
-	  },
-	  handleButtonClick: function handleButtonClick(updates) {
-	    this.setState(updates);
-	  },
-	  render: function render() {
-	    var name = this.state.name;
-	    var msg = this.state.msg;
-	    // can only return one root html element
-	    // babeljs.io/repl
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(GreeterMessage, { name: name, msg: msg }),
-	      React.createElement(GreeterForm, { onButtonClick: this.handleButtonClick })
-	    );
-	  }
-	});
+	//these are used in Greeter.js only
+	//var GreeterMessage = require('./components/GreeterMessage');
+	//var GreeterForm = require('./components/GreeterForm');
+	var Greeter = __webpack_require__(178);
 
 	/*
 	ReactDOM.render(
@@ -21598,6 +21489,156 @@
 
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(32);
+
+	var GreeterMessage = __webpack_require__(179);
+	var GreeterForm = __webpack_require__(180);
+
+	// React naming convention: camelcase for every word
+	// a React component
+	// every React component needs a render method
+	// a container component: maintain states, render children
+	var Greeter = React.createClass({
+	  displayName: 'Greeter',
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      name: 'React',
+	      msg: 'This is default message from a component'
+	    };
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      name: this.props.name,
+	      msg: this.props.msg
+	    };
+	  },
+	  handleButtonClick: function handleButtonClick(updates) {
+	    this.setState(updates);
+	  },
+	  render: function render() {
+	    var name = this.state.name;
+	    var msg = this.state.msg;
+	    // can only return one root html element
+	    // babeljs.io/repl
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(GreeterMessage, { name: name, msg: msg }),
+	      React.createElement(GreeterForm, { onButtonClick: this.handleButtonClick })
+	    );
+	  }
+	});
+
+	module.exports = Greeter;
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	// require and then exports
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(32);
+
+	// a nested component: responsible for only one thing in React
+	// a presentational component: don't maintain state, simply renders and calls functions
+	var GreeterMessage = React.createClass({
+	  displayName: 'GreeterMessage',
+
+	  render: function render() {
+	    var name = this.props.name;
+	    var msg = this.props.msg;
+
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h1',
+	        null,
+	        'Hello ',
+	        name,
+	        '!'
+	      ),
+	      React.createElement(
+	        'p',
+	        null,
+	        msg
+	      )
+	    );
+	  }
+	});
+
+	module.exports = GreeterMessage;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(32);
+
+	var GreeterForm = React.createClass({
+	  displayName: 'GreeterForm',
+
+	  onFormSubmit: function onFormSubmit(e) {
+	    e.preventDefault();
+
+	    var updates = {};
+	    var name = this.refs.name.value;
+	    var msg = this.refs.msg.value;
+
+	    if (name.length > 0) {
+	      this.refs.name.value = '';
+	      updates.name = name;
+	    }
+
+	    if (msg.length > 0) {
+	      this.refs.msg.value = '';
+	      updates.msg = msg;
+	    }
+
+	    this.props.onButtonClick(updates);
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      'form',
+	      { onSubmit: this.onFormSubmit },
+	      React.createElement(
+	        'div',
+	        null,
+	        React.createElement('input', { type: 'text', ref: 'name', placeholder: 'enter your name' })
+	      ),
+	      React.createElement(
+	        'div',
+	        null,
+	        React.createElement('textarea', { ref: 'msg', placeholder: 'enter your text' })
+	      ),
+	      React.createElement(
+	        'div',
+	        null,
+	        React.createElement(
+	          'button',
+	          null,
+	          'Submit'
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = GreeterForm;
 
 /***/ }
 /******/ ]);
