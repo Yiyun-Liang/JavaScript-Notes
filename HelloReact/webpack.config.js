@@ -29,3 +29,4 @@ module.exports = {
   }
 };
 // with the configs, simply run in terminal: webpack
+// webpack -w, like supervisor for node

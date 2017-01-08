@@ -12,9 +12,9 @@ ReactDOM.render(
   document.getElementById('app')
 )
 */
-var firstName = "Isa"
-var message = "This is a default message from prop"
+var firstName = "Isa";
+var message = "This is a default message from prop";
 ReactDOM.render(
   <Greeter name={firstName} msg={message}/>,
   document.getElementById('app')
-)
+);
