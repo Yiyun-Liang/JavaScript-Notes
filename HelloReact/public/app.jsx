@@ -1,3 +1,6 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+
 // a nested component: responsible for only one thing in React
 // a presentational component: don't maintain state, simply renders and calls functions
 var GreeterMessage = React.createClass({
